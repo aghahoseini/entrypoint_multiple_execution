@@ -1,0 +1,8 @@
+# docker build --no-cache -t testi --build-arg ssh_prv_key="$(cat ssh/id_ed25519)" --build-arg ssh_pub_key="$(cat ssh/id_ed25519.pub)"  .
+
+
+docker build --no-cache -t testi  .
+
+docker run -it -v log.txt:/etc/log.txt  testi bash
+
+docker run -it   testi bash
