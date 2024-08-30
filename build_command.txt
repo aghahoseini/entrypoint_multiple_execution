@@ -6,3 +6,23 @@ docker build --no-cache -t testi  .
 docker run -it -v log.txt:/etc/log.txt  testi bash
 
 docker run -it   testi bash
+
+
+
+#!/bin/bash
+
+echo ' entry point executed '  >> /etc/log.txt
+
+echo test >> /proc/1/fd/1          # fd/1 for stdout
+
+
+
+
+CONTAINER_FIRST_STARTUP="CONTAINER_FIRST_STARTUP"
+if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
+    touch /$CONTAINER_FIRST_STARTUP
+
+    echo ' in if '  >> /etc/log.txt
+fi
+
+bash 
